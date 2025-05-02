@@ -55,6 +55,11 @@ jobs:
             ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle-
+          
+      - name: Setup local.properties
+        run: |
+         echo "sdk.dir=$ANDROID_HOME" > local.properties
+
 
       - name: Gradle prebuild
         run: |
