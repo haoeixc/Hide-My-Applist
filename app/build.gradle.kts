@@ -19,7 +19,7 @@ if (officialBuild) {
 }
 
 android {
-    namespace = "com.tsng.hidemyapplist"
+    applicationId = "com.hicorenational.antifraud"
 
 defaultConfig {
 applicationId = “com.hicorenational.antifraud”
