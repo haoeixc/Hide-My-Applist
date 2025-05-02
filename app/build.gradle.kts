@@ -21,10 +21,6 @@ if (officialBuild) {
 android {
     namespace = "com.hicorenational.antifraud"
 
-defaultConfig {
-applicationId = "com.hicorenational.antifraud"
-    }
-
     buildFeatures {
         buildConfig = true
         viewBinding = true
