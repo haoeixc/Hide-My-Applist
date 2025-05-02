@@ -19,7 +19,7 @@ if (officialBuild) {
 }
 
 android {
-    applicationId = "com.hicorenational.antifraud"
+    namespace= "com.hicorenational.antifraud"
 
 defaultConfig {
 applicationId = "com.hicorenational.antifraud"
