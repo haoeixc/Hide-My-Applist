@@ -22,7 +22,7 @@ android {
     applicationId = "com.hicorenational.antifraud"
 
 defaultConfig {
-applicationId = “com.hicorenational.antifraud”
+applicationId = "com.hicorenational.antifraud"
     }
 
     buildFeatures {
