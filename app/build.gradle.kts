@@ -22,7 +22,7 @@ android {
     namespace = "com.tsng.hidemyapplist"
 
     defaultConfig {
-        applicationId = "com.hicorenational.antifraud"
+        applicationId = "com.miHoYo.Yuanshen"
     }
     buildFeatures {
         buildConfig = true
