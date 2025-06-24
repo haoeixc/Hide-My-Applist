@@ -20,8 +20,18 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
+      - name: Generate local.properties
+        run: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+
       - name: Build Debug APK
         run: |
           ./gradlew assembleDebug
           mkdir -p output/debug
           find . -name "*.apk" -exec cp {} output/debug/ \;
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-artifacts
+          path: output/
