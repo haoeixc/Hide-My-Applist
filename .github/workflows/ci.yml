@@ -37,6 +37,10 @@ jobs:
             -validity 10000 \
             -dname "CN=Android Debug,O=Android,C=US"
 
+      - name: Increase Gradle memory limits
+        run: |
+          echo "org.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=1g" >> gradle.properties
+
       - name: Build Debug APK
         run: |
           ./gradlew assembleDebug
