@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Build Debug APK
+        run: |
+          ./gradlew assembleDebug
+          mkdir -p output/debug
+          cp app/build/outputs/**/*.apk output/debug/
+
+      - name: Build Release APK
+        run: |
+          ./gradlew assembleRelease
+          mkdir -p output/release
+          cp app/build/outputs/**/*.apk output/release/
+
+      - name: Collect extra temp files
+        run: |
+          mkdir -p output/temp
+          echo "log info" > output/temp/build.log
+
+      - name: Upload all artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-artifacts
+          path: output/
+
+      - name: Cleanup (optional)
+        if: always()
+        run: rm -rf output/
